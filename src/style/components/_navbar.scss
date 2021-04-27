@@ -1,0 +1,48 @@
+$color-text: #FFFFFF;
+$color-background: #0f3369;
+$color-highlight: #00a2ff;
+
+/*--------------------------------
+ Functional Styles (Required)
+---------------------------------*/
+
+header { position: relative; }
+.menu > li {
+     list-style: none; 
+     display: flex;	
+    }
+
+/* Nicolas Gallagher micro clearfix */
+
+
+/*--------------------------------
+ Presentation Styles (Editable)
+---------------------------------*/
+
+header {
+    flex-direction: row;
+    justify-content: space-around;
+    display:flex;
+	height: 100%;
+	background: $color-background;
+}
+
+header > h1 {
+	margin: 0;
+	padding: 0.785714286em;
+	line-height: 1;
+	font-size: 28px;
+	color: $color-text;
+}
+
+nav { 
+    align-items: center;
+	display: flex; 
+    flex-direction: row-reverse;
+}
+
+
+
+
+
+

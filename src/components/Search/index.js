@@ -1,7 +1,11 @@
 import React from "react";
 
 function Search() {
-  return <></>;
+  return (
+    <>
+      <input placeholder="Search your hero" />
+    </>
+  );
 }
 
 export default Search;

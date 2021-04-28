@@ -1,7 +1,11 @@
 import React from "react";
 import Search from "../Search";
+import { Link } from "react-router-dom";
+
+import useUser from "../../hooks/useUser";
 
 function Navbar() {
+  const { isLogged } = useUser();
   return (
     <>
       <header>
@@ -9,6 +13,7 @@ function Navbar() {
         <nav>
           <Search />
         </nav>
+        {isLogged ? <Link>Logout</Link> : <Link to="/login">Login</Link>}
       </header>
     </>
   );

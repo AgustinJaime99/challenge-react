@@ -4,13 +4,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./style/main.scss";
-import { Provider } from "react-redux";
-import store from "./redux/store";
+import { UserContextProvider } from "./context/UserContext";
+
+// const token = localStorage.getItem("token");
+// if (token) {
+//   store.dispatch({ type: AUTH_LOG });
+// }
 
 ReactDOM.render(
-  <Provider store={store}>
+  <UserContextProvider>
     <App />
-  </Provider>,
+  </UserContextProvider>,
   document.getElementById("root")
 );
 

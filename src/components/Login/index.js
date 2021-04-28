@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ButtonFacebook from "./ButtonFacebook";
 import useUser from "../../hooks/useUser";
-import { useHistory } from "react-router-dom";
 import { useLocation } from "wouter";
 
 function Login() {

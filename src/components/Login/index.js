@@ -3,31 +3,35 @@ import ButtonFacebook from "./ButtonFacebook";
 import useUser from "../../hooks/useUser";
 import { useLocation } from "wouter";
 
-function Login() {
-  const [user, setUser] = useState("");
+function Login({ onLogin }) {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [, setLocation] = useLocation();
   const { isLogged, login } = useUser();
 
-  console.log("login:", login);
+  console.log(onLogin);
 
   useEffect(() => {
-    console.log(isLogged);
-    if (isLogged);
-  }, [isLogged, setLocation]);
+    if (isLogged) {
+      setLocation("/");
+      onLogin && onLogin();
+    }
+  }, [isLogged, setLocation, onLogin]);
 
   const handleSubmit = (e) => {
-    e.preventdefault();
-    login();
+    e.preventDefault();
+    login({ email, password });
   };
+
+  console.log("ESTOY LOGAO:", isLogged);
 
   return (
     <>
-      <form onClick={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           placeholder="userName"
-          value={user}
-          onChange={(e) => setUser(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           placeholder="password"
@@ -37,10 +41,7 @@ function Login() {
         />
         <button>Login</button>
       </form>
-      {/* <ButtonFacebook></ButtonFacebook>
-      <button type="button" onClick={() => history.push("/")}>
-        GO HOME
-      </button> */}
+      <ButtonFacebook></ButtonFacebook>
     </>
   );
 }

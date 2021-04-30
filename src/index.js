@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./style/main.scss";
-import { UserContextProvider } from "./context/UserContext";
 
 // const token = localStorage.getItem("token");
 // if (token) {
@@ -12,9 +11,9 @@ import { UserContextProvider } from "./context/UserContext";
 // }
 
 ReactDOM.render(
-  <UserContextProvider>
+  <React.StrictMode>
     <App />
-  </UserContextProvider>,
+  </React.StrictMode>,
   document.getElementById("root")
 );
 

@@ -1,5 +1,13 @@
-// import axios from 'axios'
+import axios from "axios";
+const ENDPOINT = "http://challenge-react.alkemy.org";
 
-// export const Login(user, password) {
-
-// }
+export default function login({ email, password }) {
+  return axios
+    .post(`${ENDPOINT}`, {
+      email: email,
+      password: password,
+    })
+    .then((res) => {
+      return res.data.token;
+    });
+}

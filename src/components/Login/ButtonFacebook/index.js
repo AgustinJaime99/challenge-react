@@ -1,32 +1,25 @@
 import React from "react";
+import { useLocation } from "wouter";
+import useUser from "../../../hooks/useUser";
 
-function ButtonFacebook({ onLogin }) {
+function ButtonFacebook() {
+  const [, setLocation] = useLocation();
+  const { loginFB } = useUser();
+
   const fbLogin = () => {
     if (!window.FB) return;
     window.FB.getLoginStatus((res) => {
       if (res.status === "connected") {
-        facebookLoginHandler(res);
+        loginFB(res);
+        setLocation("/");
       } else {
-        window.FB.login(facebookLoginHandler, {
+        window.FB.login(loginFB, {
           scope: "public_profile, email",
         });
       }
     });
   };
 
-  const facebookLoginHandler = (res) => {
-    console.log(res);
-    if (res.status === "connected") {
-      window.FB.api("/me?fields=id,name,email,picture", (userData) => {
-        console.log(userData);
-        const user = {
-          ...userData,
-          accessToken: res.authResponse.accessToken,
-        };
-        onLogin(user);
-      });
-    }
-  };
   return (
     <>
       <button onClick={fbLogin}>Sing in with Facebook</button>

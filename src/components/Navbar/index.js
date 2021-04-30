@@ -1,19 +1,37 @@
 import React from "react";
 import Search from "../Search";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 
 import useUser from "../../hooks/useUser";
 
 function Navbar() {
-  const { isLogged } = useUser();
+  const { isLogged, logout, profile } = useUser();
+  console.log(profile);
+
   return (
     <>
       <header>
         <h1>Hero-App</h1>
-        <nav>
-          <Search />
-        </nav>
-        {isLogged ? <Link>Logout</Link> : <Link to="/login">Login</Link>}
+        {isLogged && (
+          <nav>
+            <Search />
+          </nav>
+        )}
+        {isLogged && profile.name ? (
+          <div class="row">
+            <div class="col">
+              <Link to="#" onClick={logout}>
+                Log out
+              </Link>
+            </div>
+            <div class="col">
+              Welcome {profile.name}
+              <img src={profile.picture.data.url} alt={profile.name} />
+            </div>
+          </div>
+        ) : (
+          <Link to="/login">Login</Link>
+        )}
       </header>
     </>
   );

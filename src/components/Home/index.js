@@ -9,7 +9,10 @@ function Home() {
   return (
     <>
       {isLogged ? (
-        <Team />
+        <div>
+          <Team />
+          <Link to="/search">Search</Link> your hero !
+        </div>
       ) : (
         <div>
           <h1>Welcome ! </h1>

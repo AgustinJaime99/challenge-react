@@ -1,6 +1,6 @@
 import { useCallback, useContext, useState } from "react";
 import Context from "../context/UserContext";
-import loginService from "../utils/utils";
+import loginService from "../utils/login";
 
 export default function useUser() {
   const { jwt, setJwt, setProfile, profile } = useContext(Context);
@@ -15,7 +15,7 @@ export default function useUser() {
             accessToken: res.authResponse.accessToken,
           };
           await setProfile(user);
-          await setJwt(JSON.stringify(res.authResponse.accessToken));
+          await setJwt(res.authResponse.accessToken);
         });
       }
     },

@@ -9,8 +9,6 @@ function Login({ onLogin }) {
   const [, setLocation] = useLocation();
   const { isLogged, login } = useUser();
 
-  console.log(onLogin);
-
   useEffect(() => {
     if (isLogged) {
       setLocation("/");
@@ -23,25 +21,31 @@ function Login({ onLogin }) {
     login({ email, password });
   };
 
-  console.log("ESTOY LOGAO:", isLogged);
-
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="userName"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button>Login</button>
-      </form>
-      <ButtonFacebook></ButtonFacebook>
+      {isLogged ? (
+        <div>
+          <h1>You're log now !</h1>
+        </div>
+      ) : (
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input
+              placeholder="userName"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              placeholder="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button>Login</button>
+          </form>
+          <ButtonFacebook></ButtonFacebook>
+        </div>
+      )}
     </>
   );
 }

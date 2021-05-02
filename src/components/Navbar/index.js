@@ -1,26 +1,19 @@
 import React from "react";
-import Search from "../Search";
 import { Link } from "wouter";
 
 import useUser from "../../hooks/useUser";
 
 function Navbar() {
   const { isLogged, logout, profile } = useUser();
-  console.log(profile);
 
   return (
     <>
       <header>
         <h1>Hero-App</h1>
-        {isLogged && (
-          <nav>
-            <Search />
-          </nav>
-        )}
         {isLogged && profile.name ? (
           <div class="row">
             <div class="col">
-              <Link to="#" onClick={logout}>
+              <Link to="/" onClick={logout}>
                 Log out
               </Link>
             </div>

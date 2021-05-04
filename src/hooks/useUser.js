@@ -26,12 +26,14 @@ export default function useUser() {
     ({ email, password }) => {
       setState({ loading: true, error: false });
       loginService({ email, password })
-        .then((jwt) => {
+        .then((res) => {
           setState({ loading: false, error: false });
-          setJwt(jwt);
+          const token = res;
+          setJwt(token);
+          localStorage.setItem("jwt", token);
         })
         .catch((err) => {
-          sessionStorage.removeItem("jwt");
+          localStorage.removeItem("jwt");
           setState({ loading: false, error: true });
           console.error(err);
         });
@@ -40,7 +42,7 @@ export default function useUser() {
   );
 
   const logout = useCallback(() => {
-    sessionStorage.removeItem("jwt");
+    localStorage.removeItem("jwt");
     setJwt(null);
     setProfile([]);
   }, [setJwt, setProfile]);

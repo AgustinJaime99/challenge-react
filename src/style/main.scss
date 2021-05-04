@@ -1,1 +1,9 @@
-@import './components/navbar'
+@import './components/navbar';
+@import './components/cardsContainer';
+@import './components/pagination';
+
+@import './abstracts/mixins';
+@import './abstracts/variables';
+
+@import './base/typography';
+@import './base/base';

@@ -1,6 +1,6 @@
 $color-text: #FFFFFF;
 $color-background: #0f3369;
-$color-highlight: #00a2ff;
+$color-highlight: #2388c2;
 
 /*--------------------------------
  Functional Styles (Required)
@@ -24,11 +24,18 @@ header {
     justify-content: space-around;
     display:flex;
 	height: 100%;
-	background: $color-background;
+    box-shadow: 1px 10px 15px -4px rgba(0,0,0,0.31);
 }
 
 header > h1 {
 	margin: 0;
+	padding: 0.785714286em;
+	line-height: 1;
+	font-size: 28px;
+}
+
+header > p {
+    margin: 0;
 	padding: 0.785714286em;
 	line-height: 1;
 	font-size: 28px;
@@ -41,6 +48,18 @@ nav {
     flex-direction: row-reverse;
 }
 
+.items {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 500px;
+    
+}
+
+.items > img {
+    border-radius: 99%;
+}
 
 
 

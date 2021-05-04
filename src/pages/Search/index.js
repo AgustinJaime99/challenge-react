@@ -3,6 +3,7 @@ import axios from "axios";
 import useHero from "../../hooks/useHero";
 import { API_KEY, API_URL } from "../../utils/settings";
 import SearchResults from "../../components/SearchResults";
+import { Link } from "wouter";
 
 export default function SearchPage() {
   const [search, setSearch] = useState("");
@@ -26,6 +27,7 @@ export default function SearchPage() {
   return (
     <>
       <div>Search</div>
+      <Link to="/"> Go home</Link>
       <form onSubmit={handleSubmit}>
         <input
           placeholder="Search your hero"

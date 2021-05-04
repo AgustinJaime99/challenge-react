@@ -1,0 +1,28 @@
+@import "../abstracts/mixins";
+
+.MuiPagination-root {
+    margin-right: 620px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+    @include respond(tab-port) {
+       display: inline;
+       margin-left: 220px;
+
+    }
+
+    @include respond(i-pad) {
+        display: inline;
+       margin-left: 220px;
+    }
+    
+    @include respond(tab-land) {
+        display: inline;
+       margin-left: 220px;
+    }
+
+    @include respond(phone) {
+        display: inline;
+       margin-left: 220px;
+    }
+}

@@ -5,7 +5,7 @@ import useHero from "../../hooks/useHero";
 import { API_KEY, API_URL } from "../../utils/settings";
 
 export default function ListOfHeros({ heros }) {
-  const { hero, setHero } = useHero();
+  const { setHero } = useHero();
   const [, setLocation] = useLocation();
 
   const getHero = async (id) => {
@@ -14,25 +14,31 @@ export default function ListOfHeros({ heros }) {
     setHero(res);
   };
 
-  console.log(hero);
-
   const handleClick = (id) => {
     getHero(id);
     setLocation(`/hero/${id}`);
   };
 
+  const handleTeam = (id) => {
+    getHero(id);
+    //Agregar al team
+  };
+
   return (
-    <div>
+    <div id="container_cards">
       {heros &&
         heros.map(({ id, name, image }) => (
-          <div key={id}>
+          <div key={id} className="container_cards__single">
             <h1>{name}</h1>
-            <img src={image.url} alt={name}></img>
-            <button onClick={() => handleClick(id)}>VER ESTADISTICAS</button>
+            <img className="hero_img" src={image.url} alt={name}></img>
+            <button onClick={() => handleClick(id)}>SEE MORE</button>
+            {/* Este boton se tendria que mostrar mientras el equipo sea menor 
+            a 6 integrantes */}
+            <button onClick={() => handleTeam(id)}> ADD TO TEAM</button>
           </div>
         ))}
 
-      {heros === undefined && <h1>Busca tu heroe</h1>}
+      {heros === [] && <h1>Busca tu heroe</h1>}
     </div>
   );
 }

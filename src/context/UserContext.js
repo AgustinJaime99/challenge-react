@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Context = React.createContext({});
 
 export function UserContextProvider({ children }) {
-  const [jwt, setJwt] = useState(() => sessionStorage.getItem("jwt"));
+  const [jwt, setJwt] = useState(() => localStorage.getItem("jwt"));
   const [profile, setProfile] = useState([]);
 
   return (

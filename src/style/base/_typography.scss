@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 10;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+p,
+a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.0rem;
+  color: $primary-color;
+}
+
+a,
+a:link,
+a:hover,
+a:visited,
+p:link,
+a:active {
+  text-decoration: none;
+}
+
+p:link,
+a:hover {
+    transition: all 0.3s ease-in-out;
+  }
+

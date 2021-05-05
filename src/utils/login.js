@@ -9,5 +9,8 @@ export default function login({ email, password }) {
     })
     .then((res) => {
       return res.data.token;
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }

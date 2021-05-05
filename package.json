@@ -9,14 +9,17 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
+    "formik": "^2.2.6",
     "node-sass": "^4.14.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-reveal": "^1.2.2",
     "react-scripts": "4.0.3",
     "sass": "^1.32.11",
+    "sweetalert2": "^10.16.7",
     "web-vitals": "^1.1.1",
-    "wouter": "^2.7.4"
+    "wouter": "^2.7.4",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,5 +44,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@iconify-icons/akar-icons": "^1.1.9",
+    "@iconify-icons/ant-design": "^1.1.0",
+    "@iconify-icons/bx": "^1.1.0",
+    "@iconify/react": "^1.1.4"
   }
 }

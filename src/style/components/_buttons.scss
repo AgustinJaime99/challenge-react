@@ -1,0 +1,63 @@
+@import '../abstracts/variables';
+@import "../abstracts/mixins";
+
+.btn-login {
+    margin-top: 20px;
+    width: 50%;
+    height: 50px;
+    border: 1px solid;
+    background: none;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #e2e2e2ad;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition: 0.4s;
+
+    &:hover {
+        color: $primary-color;
+    }
+    @include respond(phone) {
+        font-size: 13px;
+        height: 35px;
+     }
+     @include respond(i-pad) {
+        font-size: 24px;
+        margin-top: 50px;
+        height: 65px;
+    }
+}
+
+.btn-fb-log {
+    margin-top: 20px;
+    width: 60%;
+    height: 50px;
+    border: 1px solid;
+    background: none;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #e2e2e2ad;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition: 0.4s;
+
+    &:hover {
+        color: #0066ff;
+    }
+
+    @include respond(phone) {
+        font-size: 13px;
+        height: 35px;
+     }
+     @include respond(i-pad) {
+        font-size: 24px;
+        margin-top: 50px;
+        height: 65px;
+    }
+}
+
+.fb-icon {
+    margin-right:6px ;
+}

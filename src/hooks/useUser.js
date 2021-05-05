@@ -55,5 +55,6 @@ export default function useUser() {
     logout,
     loginFB,
     profile,
+    jwt,
   };
 }

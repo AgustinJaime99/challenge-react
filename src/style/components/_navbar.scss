@@ -1,3 +1,4 @@
+@import "../abstracts/mixins";
 $color-text: #FFFFFF;
 $color-background: #0f3369;
 $color-highlight: #2388c2;
@@ -32,6 +33,13 @@ header > h1 {
 	padding: 0.785714286em;
 	line-height: 1;
 	font-size: 28px;
+
+    @include respond(phone) {
+        font-size: 14px;
+        width: 250px;
+        padding: 1em;
+    }
+
 }
 
 header > p {
@@ -59,8 +67,29 @@ nav {
 
 .items > img {
     border-radius: 99%;
+
+    @include respond(phone) {
+        height: 30px;
+        width: 30px;
+    }
+
 }
 
+.log {
+    font-size: 20px;
+
+    @include respond(phone) {
+        font-size: 14px;
+    }
+}
+
+.logout {
+    font-size: 20px;
+
+    @include respond(phone) {
+        font-size: 14px;
+    }
+}
 
 
 

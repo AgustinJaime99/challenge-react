@@ -1,11 +1,21 @@
 import React from "react";
+import Fade from "react-reveal/Fade";
+
 import Login from "../../components/Login";
+
+import { Icon } from "@iconify/react";
+import bxsUser from "@iconify-icons/bx/bxs-user";
 
 export default function LoginPage() {
   return (
-    <>
-      <h2>Login</h2>
-      <Login />
-    </>
+    <Fade bottom>
+      <div className="log_container">
+        <h2 className="icon_user">
+          <Icon icon={bxsUser} className="styled_icon" />
+        </h2>
+        <h2 className="sub_tittle">Log-in into your account </h2>
+        <Login />
+      </div>
+    </Fade>
   );
 }

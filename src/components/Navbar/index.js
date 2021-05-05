@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "wouter";
 import Fade from "react-reveal/Fade";
 
+import { Icon } from "@iconify/react";
+import loginOutlined from "@iconify-icons/ant-design/login-outlined";
+
 import useUser from "../../hooks/useUser";
 
 function Navbar() {
@@ -14,11 +17,13 @@ function Navbar() {
           <Link to="/">
             <h1>Hero-App</h1>
           </Link>
-          {isLogged && profile.name === null && (
+          {isLogged && profile.name === undefined && (
             <div className="items">
-              <Link to="/" onClick={logout}>
-                Log out
-              </Link>
+              <p className="logout">
+                <Link to="/" onClick={logout}>
+                  Log out
+                </Link>
+              </p>
             </div>
           )}
           {isLogged && profile.name && (
@@ -29,7 +34,7 @@ function Navbar() {
                 src={profile.picture.data.url}
                 alt={profile.name}
               />
-              <p className="log">
+              <p className="logout">
                 <Link to="/" onClick={logout}>
                   Log out
                 </Link>
@@ -39,7 +44,9 @@ function Navbar() {
           {isLogged === false && (
             <div className="items">
               <p className="log">
-                <Link to="/login">Login</Link>
+                <Link to="/login">
+                  Login <Icon icon={loginOutlined} />
+                </Link>
               </p>
             </div>
           )}

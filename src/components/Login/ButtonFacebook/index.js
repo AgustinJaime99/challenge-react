@@ -1,6 +1,10 @@
 import React from "react";
 import { useLocation } from "wouter";
+
 import useUser from "../../../hooks/useUser";
+
+import facebookFill from "@iconify-icons/akar-icons/facebook-fill";
+import { Icon } from "@iconify/react";
 
 function ButtonFacebook() {
   const [, setLocation] = useLocation();
@@ -22,7 +26,10 @@ function ButtonFacebook() {
 
   return (
     <>
-      <button onClick={fbLogin}>Sing in with Facebook</button>
+      <button onClick={fbLogin} className="btn-fb-log">
+        <Icon icon={facebookFill} className="fb-icon" />
+        Sing in with Facebook
+      </button>
     </>
   );
 }

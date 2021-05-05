@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import Fade from "react-reveal/Fade";
 
 import { Link } from "wouter";
+import axios from "axios";
 
 import useHero from "../../hooks/useHero";
-
-import SearchResults from "../../components/SearchResults";
-
 import { API_KEY, API_URL } from "../../utils/settings";
 
-import axios from "axios";
+import SearchResults from "../../components/SearchResults";
 
 export default function SearchPage() {
   const [search, setSearch] = useState("");
@@ -31,20 +29,25 @@ export default function SearchPage() {
   };
 
   return (
-    <Fade>
-      <div>Search</div>
-      <Link to="/"> Go home</Link>
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Search your hero"
-          type="text"
-          value={search}
-          onChange={handleChange}
-        />
-      </form>
+    <div id="main_search_result">
       <Fade>
-        <SearchResults />
+        <h1 className="tittle">Search your hero</h1>
+        <Link to="/" className="Link">
+          Go home
+        </Link>
+        <form onSubmit={handleSubmit}>
+          <input
+            className="label_search"
+            placeholder="Search your hero"
+            type="text"
+            value={search}
+            onChange={handleChange}
+          />
+        </form>
+        <Fade>
+          <SearchResults />
+        </Fade>
       </Fade>
-    </Fade>
+    </div>
   );
 }

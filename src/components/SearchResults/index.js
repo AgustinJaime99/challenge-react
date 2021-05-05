@@ -23,7 +23,7 @@ function SearchResults({ params }) {
   console.log("Heros:", heros);
 
   return (
-    <div id="main_search_result">
+    <div>
       {heros === undefined && <p>No se encontro el heroe</p>}
       <ListOfHeros heros={currentPosts} />
       <div className="pages">

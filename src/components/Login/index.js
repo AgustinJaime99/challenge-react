@@ -20,8 +20,6 @@ const validationSchema = yup.object({
 });
 
 function Login({ onLogin }) {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
   const [, setLocation] = useLocation();
   const { isLogged, login, jwt } = useUser();
 
@@ -35,11 +33,6 @@ function Login({ onLogin }) {
       Swal.fire("", "Something went wrong", "error");
     }
   }, [isLogged, setLocation, onLogin, jwt]);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   login({ email, password });
-  // };
 
   return (
     <div id="login">
@@ -78,7 +71,6 @@ function Login({ onLogin }) {
                       type="password"
                       className="field_form"
                     />
-                    <span className="sp"></span>
                     <label className="txt_label">Password</label>
                     {errors.password && touched.password ? (
                       <p className="errors_field">{errors.password}</p>

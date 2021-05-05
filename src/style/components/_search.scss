@@ -1,0 +1,65 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+#main_search_result{
+    .tittle {
+        font-size: 50px;
+  
+    
+        @include respond(i-pad) {
+            font-size: 40px;
+        }
+        
+        @include respond(tab-land) {
+            font-size: 40px;
+        }
+    
+        @include respond(phone) {
+            font-size: 30px;
+        }
+    }
+
+    .Link {
+        font-size: 34px;
+
+        @include respond(i-pad) {
+            font-size: 24px;
+        }
+        
+        @include respond(tab-land) {
+            font-size: 24px;
+        }
+    
+        @include respond(phone) {
+            font-size: 14px;
+        }
+    }
+
+    .label_search {
+        margin-top: 20px;
+        width: 20%;
+        height: 50px;
+        font-size: 23px; 
+        outline: none;
+        border: none;
+        background: none;
+        transition: .5s;
+        border-bottom: 2px solid #adadaaa9;
+
+        &:hover {
+            border-bottom: 2px solid $primary-color;
+        }
+
+        @include respond(i-pad) {
+            width: 50%;
+        }
+        
+        @include respond(tab-land) {
+            width: 50%;
+        }
+    
+        @include respond(phone) {
+            width: 70%;
+        }
+    }
+}

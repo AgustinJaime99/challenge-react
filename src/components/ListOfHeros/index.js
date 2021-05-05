@@ -29,12 +29,17 @@ export default function ListOfHeros({ heros }) {
       {heros &&
         heros.map(({ id, name, image }) => (
           <div key={id} className="container_cards__single">
-            <h1>{name}</h1>
+            <h1 className="name_hero">{name}</h1>
             <img className="hero_img" src={image.url} alt={name}></img>
-            <button onClick={() => handleClick(id)}>SEE MORE</button>
+            <button className="btn-card" onClick={() => handleClick(id)}>
+              Detail
+            </button>
             {/* Este boton se tendria que mostrar mientras el equipo sea menor 
             a 6 integrantes */}
-            <button onClick={() => handleTeam(id)}> ADD TO TEAM</button>
+            <button className="btn-card" onClick={() => handleTeam(id)}>
+              {" "}
+              Add to Team
+            </button>
           </div>
         ))}
 

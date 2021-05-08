@@ -10,17 +10,7 @@
     h2 {
         font-size: 60px;
     }
-    @include respond(tab-port) {
-      
-    }
 
-    @include respond(i-pad) {
-      
-    }
-    
-    @include respond(tab-land) {
-        
-    }
 
     @include respond(phone) {
         margin-top: 190px;

@@ -51,6 +51,10 @@
         font-size: 13px;
         height: 35px;
      }
+    @include respond(phone-xs) {
+        font-size: 1px;
+        height: 35px;
+     }
      @include respond(i-pad) {
         font-size: 24px;
         margin-top: 50px;

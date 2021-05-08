@@ -2,10 +2,12 @@ import axios from "axios";
 import React from "react";
 import { useLocation } from "wouter";
 import useHero from "../../hooks/useHero";
+import useTeam from "../../hooks/useTeam";
 import { API_KEY, API_URL } from "../../utils/settings";
 
 export default function ListOfHeros({ heros }) {
-  const { setHero } = useHero();
+  const { setHero, hero } = useHero();
+  const { totalTeam } = useTeam();
   const [, setLocation] = useLocation();
 
   const getHero = async (id) => {
@@ -20,8 +22,13 @@ export default function ListOfHeros({ heros }) {
   };
 
   const handleTeam = (id) => {
-    getHero(id);
-    //Agregar al team
+    getHero(id); //capturamos el id de nuestro heroe
+
+    //verificamos que nuestro team no este lleno
+    if (totalTeam <= 6) {
+      totalTeam.push(hero);
+      console.log("TOTAL TEAM:", totalTeam);
+    }
   };
 
   return (

@@ -1,0 +1,119 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+#container-detail {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    @include respond(tab-port) {
+        display: grid;
+        padding-bottom: 6.4rem;
+        justify-items: center;
+        align-items: center;
+    }
+
+    @include respond(i-pad) {
+        display: grid;
+        padding-bottom: 6.4rem;
+
+        justify-items: center;
+        align-items: center;
+    }
+    
+    @include respond(tab-land) {
+        height: 100%;
+    }
+
+    @include respond(phone) {
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column ;
+        grid-gap: 0px;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .image-container{
+        .img{
+            margin-top: 4em;
+            margin-right: 10em;
+            border-radius: 20px;
+            box-shadow: 0px 0px 16px 0px #000000;
+
+            @include respond(tab-port) {
+                margin-right: 0;
+            }
+        
+            @include respond(i-pad) {
+                margin-right: 0;
+            }
+            
+            @include respond(tab-land) {
+                margin-right: 0;
+            }
+        
+            @include respond(phone) {
+                margin-right: 0;
+                width: 320px;
+                height: 420px;
+            }
+        }
+    }
+
+    .info{
+        margin: 0%;
+
+        h3 {
+            color: $white-color;
+            text-shadow: 4px 4px 4px black;
+        }
+        .title {
+            .name-hero{
+                font-size: 40px;
+                transition: 0.7s;
+            }
+            .fullname-hero {
+                font-size: 35px;
+            }
+        }
+
+
+        .list{
+            list-style-type: none;
+            margin: 0%;
+            padding: 0%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 20px;
+
+            text-shadow: 4px 4px 4px black;
+            
+
+            .list-item {
+                margin: 10px;
+                font-size: 20px;
+                color: $white-color;
+                text-shadow: 4px 4px 4px black;
+            }
+        }
+
+        .details{
+            .span{
+                color: $white-color;
+                font-size: 25px;
+                text-shadow: 4px 4px 4px black;
+            }
+            
+        }
+        
+    }
+    
+}
+
+
+
+    
+    

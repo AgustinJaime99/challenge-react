@@ -1,13 +1,37 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import "../abstracts/variables";
 
 h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 1%;
+    color: $white-color;
+    transition: 0.5s;
+    text-shadow: 3px 3px 3px black;
+    
+    
+}
+
+.l {
+  font-size: 40px;
+  color: $primary-red;
+  text-shadow: 1px 1px 3px rgb(0, 0, 0);
 }
 
 h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 1;
+    transition: 0.5s;
+    color: $white-color;
+    text-shadow: 2px 2px 2px black;
+    
+}
+
+.swal2-title{
+  text-shadow: none;
+
+  &:hover{
+    text-shadow: none;
+  }
 }
 
 p,

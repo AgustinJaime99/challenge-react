@@ -1,33 +1,38 @@
-import axios from "axios";
 import React from "react";
 import { useLocation } from "wouter";
 import useHero from "../../hooks/useHero";
-import useTeam from "../../hooks/useTeam";
-import { API_KEY, API_URL } from "../../utils/settings";
+import useUser from "../../hooks/useUser";
+import getHero from "../../utils/getHero";
+
+import Swal from "sweetalert2";
 
 export default function ListOfHeros({ heros }) {
-  const { setHero, hero } = useHero();
-  const { totalTeam } = useTeam();
+  const { addToTeam, team } = useUser();
+  const { setHero } = useHero();
   const [, setLocation] = useLocation();
 
-  const getHero = async (id) => {
-    const res = await axios.get(`${API_URL}/${API_KEY}/${id}`);
-    console.log(res);
-    setHero(res);
-  };
-
   const handleClick = (id) => {
-    getHero(id);
+    getHero(id).then((res) => {
+      setHero(res);
+    });
     setLocation(`/hero/${id}`);
   };
 
   const handleTeam = (id) => {
-    getHero(id); //capturamos el id de nuestro heroe
-
-    //verificamos que nuestro team no este lleno
-    if (totalTeam <= 6) {
-      totalTeam.push(hero);
-      console.log("TOTAL TEAM:", totalTeam);
+    if (team.length === 0) {
+      addToTeam(id);
+      Swal.fire("Success!", "Added to Team", "success");
+    } else {
+      let map = team.map((i) => i.id === id);
+      if (map.includes(true)) {
+        return Swal.fire("Error", "Your Hero is already on the team", "error");
+      } else {
+        addToTeam(id);
+        Swal.fire("Success!", "Added to Team", "success");
+      }
+    }
+    if (team.length === 6) {
+      return Swal.fire("Error", "Your Team is full", "error");
     }
   };
 

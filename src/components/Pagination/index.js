@@ -17,10 +17,11 @@ export default function Pages({ totalPages, paginate }) {
     <>
       <Pagination
         count={totalPages}
-        variant="outlined"
         page={page}
         onChange={handleChange}
         id="pagination"
+        color="primary"
+        size="large"
       />
     </>
   );

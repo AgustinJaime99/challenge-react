@@ -13,7 +13,7 @@ export default function LoginPage() {
         <h2 className="icon_user">
           <Icon icon={bxsUser} className="styled_icon" />
         </h2>
-        <h2 className="sub_tittle">Log-in into your account </h2>
+        <h3 className="sub_tittle">Log-in into your account </h3>
         <Login />
       </div>
     </Fade>

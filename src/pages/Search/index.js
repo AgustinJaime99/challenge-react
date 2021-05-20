@@ -1,27 +1,20 @@
 import React, { useState } from "react";
 import Fade from "react-reveal/Fade";
-
 import { Link } from "wouter";
-import axios from "axios";
-
 import useHero from "../../hooks/useHero";
-import { API_KEY, API_URL } from "../../utils/settings";
-
 import SearchResults from "../../components/SearchResults";
+import useUser from "../../hooks/useUser";
+
+import { RotateLoader } from "react-spinners";
 
 export default function SearchPage() {
+  const { isLogged } = useUser();
   const [search, setSearch] = useState("");
-  const { setHeros } = useHero();
-
-  const getHeros = async (search) => {
-    const res = await axios.get(`${API_URL}/${API_KEY}/search/${search}`);
-    console.log(res);
-    setHeros(res.data.results);
-  };
+  const { setHeros, getHeros, loading } = useHero();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    getHeros(search);
+    getHeros(search).then((res) => setHeros(res.data.results));
   };
 
   const handleChange = (e) => {
@@ -31,22 +24,36 @@ export default function SearchPage() {
   return (
     <div id="main_search_result">
       <Fade>
-        <h1 className="tittle">Search your hero</h1>
-        <Link to="/" className="Link">
-          Go home
-        </Link>
-        <form onSubmit={handleSubmit}>
-          <input
-            className="label_search"
-            placeholder="Search your hero"
-            type="text"
-            value={search}
-            onChange={handleChange}
-          />
-        </form>
-        <Fade>
-          <SearchResults />
-        </Fade>
+        {isLogged ? (
+          <>
+            <h1 className="tittle">Search your hero</h1>
+            <Link to="/" className="Link">
+              Go home
+            </Link>
+            <form onSubmit={handleSubmit}>
+              <input
+                className="label_search"
+                placeholder="Search your hero"
+                type="text"
+                value={search}
+                onChange={handleChange}
+              />
+            </form>
+            <Fade>
+              {loading ? (
+                <>
+                  <div className="spinner">
+                    <RotateLoader color="maroon" size={72} margin={100} />
+                  </div>
+                </>
+              ) : (
+                <SearchResults />
+              )}
+            </Fade>
+          </>
+        ) : (
+          <h1>You need login to search your heros</h1>
+        )}
       </Fade>
     </div>
   );

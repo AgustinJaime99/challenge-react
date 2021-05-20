@@ -3,7 +3,7 @@ import useHero from "../../hooks/useHero";
 import ListOfHeros from "../ListOfHeros";
 import Pages from "../Pagination";
 
-function SearchResults({ params }) {
+function SearchResults() {
   const { heros } = useHero();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,12 +19,10 @@ function SearchResults({ params }) {
     pageNumbers.push(i);
   }
 
-  console.log("PageNum:", pageNumbers);
-  console.log("Heros:", heros);
-
   return (
     <div>
-      {heros === undefined && <p>No se encontro el heroe</p>}
+      {heros === undefined && <h1>No hero was found</h1>}
+      {}
       <ListOfHeros heros={currentPosts} />
       <div className="pages">
         <Pages totalPages={pageNumbers.length} paginate={paginate} />

@@ -15,7 +15,7 @@ function Navbar() {
       <Fade top>
         <header>
           <Link to="/">
-            <h1>Hero-App</h1>
+            <h1>{"<Hero App />"}</h1>
           </Link>
           {isLogged && profile.name === undefined && (
             <div className="items">

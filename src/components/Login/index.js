@@ -10,6 +10,8 @@ import useUser from "../../hooks/useUser";
 
 import ButtonFacebook from "./ButtonFacebook";
 
+import { DotLoader } from "react-spinners";
+
 const validationSchema = yup.object({
   email: yup
     .string("email")
@@ -21,7 +23,7 @@ const validationSchema = yup.object({
 
 function Login({ onLogin }) {
   const [, setLocation] = useLocation();
-  const { isLogged, login, jwt } = useUser();
+  const { isLogged, login, jwt, loading } = useUser();
 
   useEffect(() => {
     if (isLogged) {
@@ -37,10 +39,8 @@ function Login({ onLogin }) {
   return (
     <div id="login">
       <Fade>
-        {isLogged ? (
-          <div>
-            <h1>You're log now !</h1>
-          </div>
+        {loading ? (
+          <DotLoader color="maroon" size={72} margin={100} />
         ) : (
           <div className="form_container">
             <Formik

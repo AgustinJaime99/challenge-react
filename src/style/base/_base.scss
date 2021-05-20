@@ -5,5 +5,21 @@ html {
   body {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    background-image: url('../../components/assets/background.jpg');
+    background-repeat: no-repeat;
+    background-color: rgb(48, 21, 21);
   }
   
+  .spinner{
+    margin-top: 150px;
+  }
+  
+  .spinner-login{
+    display: flex;
+    margin-top: 150px;
+    flex-direction: column;
+    align-items: center;
+    .s{
+      margin-top: 450px;
+    }
+  }

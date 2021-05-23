@@ -1,4 +1,22 @@
-## Running the project 
+#Challenge React
+
+<p align='center'>
+<img src='https://i.ibb.co/s2L1nqL/1.jpg' </img>
+<br>
+</br>
+</br>
+<img src='https://i.ibb.co/BLCzDyX/2.jpg' </img>
+<br>
+</br>
+</br>
+<img src='https://i.ibb.co/4JDnjMQ/3.jpg' </img>
+<br>
+</br>
+</br>
+<img src='https://i.ibb.co/9qXDrmL/4.jpg' </img>
+</p>
+
+# Running the project 
 
 After running the project it is necessary to activate the cors through this link: https://cors-anywhere.herokuapp.com/corsdemo
 to be able to make requests to the API.

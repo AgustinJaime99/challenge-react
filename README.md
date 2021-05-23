@@ -1,3 +1,8 @@
+## Running the project 
+
+After running the project it is necessary to activate the cors through this link: https://cors-anywhere.herokuapp.com/corsdemo
+to be able to make requests to the API.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
